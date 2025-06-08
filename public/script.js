@@ -11,7 +11,7 @@ function log(message, robotId, task) {
 
 // Send log to backend
   if (robotId && task) {
-    fetch('${API_BASE}/api/log', {
+    fetch(`${API_BASE}/api/log`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ robotId, task }),
