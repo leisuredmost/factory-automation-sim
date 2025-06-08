@@ -8,6 +8,7 @@ function log(message, robotId, task) {
   logEl.appendChild(entry);
   logEl.scrollTop = logEl.scrollHeight;
 
+  console.log("📤 Logging to backend:", { robotId, task });
 
 // Send log to backend
   if (robotId && task) {
@@ -15,7 +16,10 @@ function log(message, robotId, task) {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ robotId, task }),
-    });
+    })
+    .then((res) => res.json())
+    .then((data) => console.log("✅ Backend responded:", data))
+    .catch((err) => console.error("❌ Fetch error:", err));
   }
 }
 
