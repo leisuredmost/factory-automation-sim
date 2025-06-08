@@ -23,7 +23,7 @@ function simulateRobot(robotId, task) {
   return setInterval(() => {
     const robotEl = document.getElementById(robotId);
     robotEl.style.background = "#a0ffa0";
-    log(`${robotId} is ${task}...`);
+    log(`${robotId} is ${task}...`, robotId, task);
     setTimeout(() => {
       robotEl.style.background = "#fff";
     }, 1000);
