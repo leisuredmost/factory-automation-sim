@@ -1,3 +1,4 @@
+const API_BASE = "https://factory-automation-sim.onrender.com";
 let intervalIds = [];
 
 function log(message, robotId, task) {
@@ -10,7 +11,7 @@ function log(message, robotId, task) {
 
 // Send log to backend
   if (robotId && task) {
-    fetch("/api/log", {
+    fetch(${"API_BASE}/api/log", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ robotId, task }),
