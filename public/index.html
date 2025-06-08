@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Factory Robot Automation</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>Factory Robot Automation Simulator</h1>
+
+  <div class="factory-floor">
+    <div class="robot" id="robot1">🤖 Robot A</div>
+    <div class="robot" id="robot2">🤖 Robot B</div>
+    <div class="robot" id="robot3">🤖 Robot C</div>
+  </div>
+
+  <div class="controls">
+    <button onclick="startShift()">Start Shift</button>
+    <button onclick="stopShift()">Stop Shift</button>
+  </div>
+
+  <div class="log" id="logOutput">
+    <h2>Activity Log</h2>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

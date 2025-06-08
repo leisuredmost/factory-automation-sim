@@ -1,0 +1,46 @@
+body {
+  font-family: sans-serif;
+  background: #f4f4f4;
+  text-align: center;
+  padding: 20px;
+}
+
+.factory-floor {
+  display: flex;
+  justify-content: space-around;
+  margin: 30px 0;
+}
+
+.robot {
+  background: #fff;
+  padding: 20px;
+  border: 2px solid #333;
+  border-radius: 10px;
+  width: 150px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.5s;
+}
+
+.controls {
+  margin: 20px 0;
+}
+
+button {
+  margin: 0 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+}
+
+.log {
+  background: #222;
+  color: #0f0;
+  padding: 10px;
+  max-height: 200px;
+  overflow-y: scroll;
+  text-align: left;
+  border-radius: 5px;
+  margin-top: 20px;
+}
