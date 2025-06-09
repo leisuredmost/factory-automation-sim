@@ -8,18 +8,14 @@ function log(message, robotId, task) {
   logEl.appendChild(entry);
   logEl.scrollTop = logEl.scrollHeight;
 
-  console.log("📤 Logging to backend:", { robotId, task });
-
 // Send log to backend
+  
   if (robotId && task) {
     fetch(`${API_BASE}/api/log`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ robotId, task }),
-    })
-    .then((res) => res.json())
-    .then((data) => console.log("✅ Backend responded:", data))
-    .catch((err) => console.error("❌ Fetch error:", err));
+    }).catch(console.error);
   }
 }
 
@@ -27,9 +23,9 @@ function simulateRobot(robotId, task) {
   return setInterval(() => {
     const robotEl = document.getElementById(robotId);
     robotEl.style.background = "#a0ffa0";
-    log(`${robotId} is ${task}...`, robotId, task);
+    log(`${robotId} is ${task}`, robotId, task);
     setTimeout(() => {
-      robotEl.style.background = "#fff";
+      robotEl.style.background = "#6c757d"; // Bootstrap secondary color
     }, 1000);
   }, Math.random() * 2000 + 2000);
 }
