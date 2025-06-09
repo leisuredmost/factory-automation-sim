@@ -6,8 +6,6 @@ function log(message, robotId, task) {
   entry.textContent = `[${new Date().toLocaleTimeString()}] ${message}`;
   logEl.appendChild(entry);
   logEl.scrollTop = logEl.scrollHeight;
-
-  fetch('/api/log', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ robotId, task }) });
 }
 
 function simulateRobot(robotId, task) {
