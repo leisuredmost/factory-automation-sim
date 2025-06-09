@@ -1,31 +1,25 @@
-const API_BASE = "https://factory-automation-sim.onrender.com";
+const logEl = document.getElementById("logOutput");
 let intervalIds = [];
 
 function log(message, robotId, task) {
-  const logEl = document.getElementById("logOutput");
   const entry = document.createElement("p");
   entry.textContent = `[${new Date().toLocaleTimeString()}] ${message}`;
   logEl.appendChild(entry);
   logEl.scrollTop = logEl.scrollHeight;
 
-// Send log to backend
-  
-  if (robotId && task) {
-    fetch(`${API_BASE}/api/log`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ robotId, task }),
-    }).catch(console.error);
-  }
+  fetch('/api/log', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ robotId, task }) });
 }
 
 function simulateRobot(robotId, task) {
   return setInterval(() => {
     const robotEl = document.getElementById(robotId);
-    robotEl.style.background = "#a0ffa0";
-    log(`${robotId} is ${task}`, robotId, task);
+    if (!robotEl) return;
+
+    robotEl.classList.add("glowing");
+    log(`${robotId} is ${task}...`, robotId, task);
+
     setTimeout(() => {
-      robotEl.style.background = "#6c757d"; // Bootstrap secondary color
+      robotEl.classList.remove("glowing");
     }, 1000);
   }, Math.random() * 2000 + 2000);
 }
@@ -42,3 +36,6 @@ function stopShift() {
   intervalIds.forEach(clearInterval);
   intervalIds = [];
 }
+
+document.getElementById("startBtn").addEventListener("click", startShift);
+document.getElementById("stopBtn").addEventListener("click", stopShift);
