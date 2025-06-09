@@ -2,28 +2,33 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Factory Robot Automation</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Factory Robot Simulation</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
-<body>
-  <h1>Factory Robot Automation Simulator</h1>
-
-  <div class="factory-floor">
-    <div class="robot" id="robot1">🤖 Robot A</div>
-    <div class="robot" id="robot2">🤖 Robot B</div>
-    <div class="robot" id="robot3">🤖 Robot C</div>
+<body class="bg-dark text-white">
+  <div class="container py-5 text-center">
+    <h1 class="display-4 mb-4">🤖 Factory Automation Simulator</h1>
+    <div class="mb-3">
+      <button onclick="startShift()" class="btn btn-success me-2">Start Shift</button>
+      <button onclick="stopShift()" class="btn btn-danger">Stop Shift</button>
+    </div>
+    <div class="row justify-content-center my-4">
+      <div class="col-md-3 mb-3">
+        <div id="robot1" class="p-3 border rounded bg-secondary">Robot 1</div>
+      </div>
+      <div class="col-md-3 mb-3">
+        <div id="robot2" class="p-3 border rounded bg-secondary">Robot 2</div>
+      </div>
+      <div class="col-md-3 mb-3">
+        <div id="robot3" class="p-3 border rounded bg-secondary">Robot 3</div>
+      </div>
+    </div>
+    <div class="bg-light text-dark rounded p-3" style="max-height: 200px; overflow-y: auto;" id="logOutput">
+      <p><em>System logs will appear here...</em></p>
+    </div>
   </div>
-
-  <div class="controls">
-    <button onclick="startShift()">Start Shift</button>
-    <button onclick="stopShift()">Stop Shift</button>
-  </div>
-
-  <div class="log" id="logOutput">
-    <h2>Activity Log</h2>
-  </div>
-
   <script src="script.js"></script>
 </body>
 </html>
